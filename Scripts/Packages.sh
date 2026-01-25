@@ -62,7 +62,7 @@ UPDATE_PACKAGE "dns2socks-rust" "fw876/helloworld" "master" "pkg"
 UPDATE_PACKAGE "shadowsocks-libev" "fw876/helloworld" "master" "pkg"
 UPDATE_PACKAGE "shadowsocksr-libev" "fw876/helloworld" "master" "pkg"
 
-UPDATE_PACKAGE "golang" "sbwml/packages_lang_golang" "25.x"
+UPDATE_PACKAGE "golang" "sbwml/packages_lang_golang" "25.x" "name"
 
 UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
 
