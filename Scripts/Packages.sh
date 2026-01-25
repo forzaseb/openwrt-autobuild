@@ -45,7 +45,7 @@ UPDATE_PACKAGE() {
 # 专用：替换系统 Golang 版本
 UPDATE_GOLANG() {
 	local GO_REPO="sbwml/packages_lang_golang"
-	local GO_BRANCH="master"
+	local GO_BRANCH="25.x"
 
 	echo " "
 	MSG_INFO "Updating Golang from $GO_REPO ..."
