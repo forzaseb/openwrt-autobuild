@@ -42,31 +42,6 @@ UPDATE_PACKAGE() {
 	fi
 }
 
-# 专用：替换系统 Golang 版本
-UPDATE_GOLANG() {
-	local GO_REPO="sbwml/packages_lang_golang"
-	local GO_BRANCH="25.x"
-
-	echo " "
-	MSG_INFO "Updating Golang from $GO_REPO ..."
-
-	# 1. 强制删除官方 feeds 中的 golang
-	# OpenWrt 的 golang 通常位于 feeds/packages/lang/golang
-	rm -rf ../feeds/packages/lang/golang
-	
-	# 2. 也是为了保险，删除当前目录下可能存在的 golang
-	rm -rf ./golang
-
-	# 3. 克隆新的 Golang
-	git clone --depth=1 --single-branch --branch "$GO_BRANCH" "https://github.com/$GO_REPO.git" golang
-
-	if [ -d "golang" ]; then
-		MSG_INFO "Golang has been replaced with sbwml version!"
-	else
-		MSG_ERR "Golang update failed!"
-	fi
-}
-
 # 调用示例
 # UPDATE_PACKAGE "OpenAppFilter" "destan19/OpenAppFilter" "master" "" "custom_name1 custom_name2"
 # UPDATE_PACKAGE "open-app-filter" "destan19/OpenAppFilter" "master" "" "luci-app-appfilter oaf" 这样会把原有的open-app-filter，luci-app-appfilter，oaf相关组件删除，不会出现coremark错误。
