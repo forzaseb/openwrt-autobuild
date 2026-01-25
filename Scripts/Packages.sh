@@ -26,6 +26,8 @@ UPDATE_PACKAGE() {
 		else
 			echo "Not fonud directory: $NAME"
 		fi
+
+	
 	done
 
 	# 克隆 GitHub 仓库
@@ -37,6 +39,31 @@ UPDATE_PACKAGE() {
 		rm -rf ./$REPO_NAME/
 	elif [[ "$PKG_SPECIAL" == "name" ]]; then
 		mv -f $REPO_NAME $PKG_NAME
+	fi
+}
+
+# 专用：替换系统 Golang 版本
+UPDATE_GOLANG() {
+	local GO_REPO="sbwml/packages_lang_golang"
+	local GO_BRANCH="master"
+
+	echo " "
+	MSG_INFO "Updating Golang from $GO_REPO ..."
+
+	# 1. 强制删除官方 feeds 中的 golang
+	# OpenWrt 的 golang 通常位于 feeds/packages/lang/golang
+	rm -rf ../feeds/packages/lang/golang
+	
+	# 2. 也是为了保险，删除当前目录下可能存在的 golang
+	rm -rf ./golang
+
+	# 3. 克隆新的 Golang
+	git clone --depth=1 --single-branch --branch "$GO_BRANCH" "https://github.com/$GO_REPO.git" golang
+
+	if [ -d "golang" ]; then
+		MSG_INFO "Golang has been replaced with sbwml version!"
+	else
+		MSG_ERR "Golang update failed!"
 	fi
 }
 
@@ -61,8 +88,6 @@ UPDATE_PACKAGE "ssr-plus" "fw876/helloworld" "master" "pkg"
 UPDATE_PACKAGE "dns2socks-rust" "fw876/helloworld" "master" "pkg"
 UPDATE_PACKAGE "shadowsocks-libev" "fw876/helloworld" "master" "pkg"
 UPDATE_PACKAGE "shadowsocksr-libev" "fw876/helloworld" "master" "pkg"
-
-UPDATE_PACKAGE "golang" "sbwml/packages_lang_golang" "25.x" "name"
 
 UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
 
