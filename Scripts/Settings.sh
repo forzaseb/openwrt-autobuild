@@ -43,8 +43,8 @@ if [ -n "$WRT_PACKAGE" ]; then
 fi
 
 #更新Golang
-rm -rf ./feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 25.x ./feeds/packages/lang/golang
+#rm -rf ./feeds/packages/lang/golang
+#git clone https://github.com/sbwml/packages_lang_golang -b 25.x ./feeds/packages/lang/golang
 
 #高通平台调整
 DTS_PATH="./target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/"
