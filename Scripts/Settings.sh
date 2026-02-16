@@ -49,6 +49,7 @@ git clone https://github.com/sbwml/packages_lang_golang -b 25.x ./feeds/packages
 #高通平台调整
 DTS_PATH="./target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/"
 cp -f $GITHUB_WORKSPACE/ipq6018-512m-nowifi.dtsi $DTS_PATH/ipq6018-512m-nowifi.dtsi
+cp -f $GITHUB_WORKSPACE/ipq6018-nowifi.dtsi $DTS_PATH/ipq6018-nowifi.dtsi
 if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
 	#取消nss相关feed
 	echo "CONFIG_FEED_nss_packages=n" >> ./.config
