@@ -4,8 +4,11 @@
 官方版：
 https://github.com/immortalwrt/immortalwrt.git
 
-高通版：
+VIKINGYFY版：
 https://github.com/VIKINGYFY/immortalwrt.git
+
+LiBwrt版：
+https://github.com/LiBwrt/openwrt-6.x.git
 
 # 固件简要说明：
 
