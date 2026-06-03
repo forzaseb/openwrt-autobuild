@@ -68,12 +68,3 @@ if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
 	#其他调整
 	echo "CONFIG_PACKAGE_kmod-usb-serial-qualcomm=y" >> ./.config
 fi
-
-#Libwrt调整
-DTS_FILE="target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6018-512m.dtsi"
-if [ -f "$DTS_FILE" ]; then
-   sed -i 's/reg = <0x0 0x4ab00000 0x0 0x[0-9a-f]\+>/reg = <0x0 0x4ab00000 0x0 0x01000000>/' "$DTS_FILE"
-   echo "修改完成：$DTS_FILE"
-     else
-   echo "文件不存在：$DTS_FILE"
-fi
