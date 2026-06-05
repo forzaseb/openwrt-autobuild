@@ -127,3 +127,6 @@ UPDATE_VERSION() {
 #UPDATE_VERSION "sing-box"
 UPDATE_VERSION "xray-core"
 #UPDATE_VERSION "tailscale"
+
+#daed编译需要的依赖
+mkdir -p libcron && wget -O libcron/Makefile https://raw.githubusercontent.com/immortalwrt/packages/refs/heads/master/libs/libcron/Makefile
