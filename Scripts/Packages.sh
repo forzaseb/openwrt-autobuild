@@ -127,8 +127,3 @@ UPDATE_VERSION() {
 #UPDATE_VERSION "sing-box"
 UPDATE_VERSION "xray-core"
 #UPDATE_VERSION "tailscale"
-
-#daed编译需要的依赖
-#rm -rf luci-app-daed/daed/Makefile && cp -r $GITHUB_WORKSPACE/patches/daed/Makefile luci-app-daed/daed/
-sed -i 's/pnpm install ; \\/pnpm install --no-frozen-lockfile ; \\/g' luci-app-daed/daed/Makefile
-sed -i 's|github.com/daeuniverse/quic-go|github.com/olicesx/quic-go|g' luci-app-daed/daed/Makefile
