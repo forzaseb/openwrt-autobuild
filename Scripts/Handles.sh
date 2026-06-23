@@ -11,6 +11,9 @@ if [ -d *"homeproxy"* ]; then
 	HP_RULE="surge"
 	HP_PATH="homeproxy/root/etc/homeproxy"
 
+	cd ./$HP_RULE/
+	cp -f $GITHUB_WORKSPACE/generate_client.uc ./scripts/generate_client.uc
+
 	rm -rf ./$HP_PATH/resources/*
 
 	git clone -q --depth=1 --single-branch --branch "release" "https://github.com/Loyalsoldier/surge-rules.git" ./$HP_RULE/
