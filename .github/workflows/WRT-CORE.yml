@@ -172,11 +172,11 @@ jobs:
           $GITHUB_WORKSPACE/Scripts/Packages.sh
           $GITHUB_WORKSPACE/Scripts/Handles.sh
 
-          ./scripts/feeds install -a
-
       - name: Custom Settings
         run: |
           cd ./wrt/
+
+          ./scripts/feeds install -a
 
           if [[ "${WRT_CONFIG,,}" == *"test"* ]]; then
             cat $GITHUB_WORKSPACE/Config/$WRT_CONFIG.txt >> .config
