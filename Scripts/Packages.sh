@@ -128,6 +128,12 @@ UPDATE_VERSION() {
 	done
 }
 
+# 替换 mwan3 相关组件
+rm -rf ./feeds/luci/applications/luci-app-mwan3/
+git clone https://github.com/dl12345/luci-app-mwan3.git ./feeds/luci/applications/luci-app-mwan3
+rm -rf ./feeds/packages/net/mwan3/
+git clone https://github.com/dl12345/mwan3.git ./feeds/packages/net/mwan3/
+
 #UPDATE_VERSION "软件包名" "测试版，true，可选，默认为否"
 #UPDATE_VERSION "sing-box"
 
