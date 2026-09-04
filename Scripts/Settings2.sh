@@ -54,7 +54,6 @@ if [[ "${WRT_CONFIG,,}" == *"wifi"* && "${WRT_CONFIG,,}" == *"no"* ]]; then
 fi
 
 #高通平台调整
-DTS_PATH="./target/linux/qualcommax/dts/"
 if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
 	#取消nss相关feed
 	echo "CONFIG_FEED_nss_packages=n" >> ./.config
@@ -63,7 +62,7 @@ if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
 	echo "CONFIG_NSS_FIRMWARE_VERSION_11_4=n" >> ./.config
 	echo "CONFIG_NSS_FIRMWARE_VERSION_12_5=y" >> ./.config
 #Libwrt调整
-DTS_FILE="target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6018-512m.dtsi"
+DTS_FILE="./target/linux/qualcommax/files/arch/arm64/boot/dts/qcom/ipq6018-512m.dtsi"
 if [ -f "$DTS_FILE" ]; then
    sed -i 's/reg = <0x0 0x4ab00000 0x0 0x[0-9a-f]\+>/reg = <0x0 0x4ab00000 0x0 0x01000000>/' "$DTS_FILE"
    echo "修改完成：$DTS_FILE"
