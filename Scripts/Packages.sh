@@ -88,8 +88,8 @@ UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "axonhub gecoosac sing-bo
 UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 
 #mwan3
-UPDATE_PACKAGE "luci-app-mwan3" "dl12345/luci-app-mwan3" "openwrt-25.12"
-UPDATE_PACKAGE "mwan3" "dl12345/mwan3" "openwrt-25.12"
+UPDATE_PACKAGE "luci-app-mwan3" "dl12345/luci-app-mwan3" "openwrt-25.12" "luci-app-mwan3"
+UPDATE_PACKAGE "mwan3" "dl12345/mwan3" "openwrt-25.12" "mwan3"
 
 #更新软件包版本
 UPDATE_VERSION() {
