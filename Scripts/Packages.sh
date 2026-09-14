@@ -136,6 +136,7 @@ git clone https://github.com/dl12345/mwan3.git ./feeds/packages/net/mwan3/
 
 #UPDATE_VERSION "软件包名" "测试版，true，可选，默认为否"
 #UPDATE_VERSION "sing-box"
+UPDATE_VERSION "xray-core" "true"
 
 #引入私有扩展脚本
 if [ -f "$GITHUB_WORKSPACE/Scripts/PRIVATE.sh" ]; then
