@@ -53,6 +53,11 @@ if [[ "${WRT_CONFIG,,}" == *"wifi"* && "${WRT_CONFIG,,}" == *"no"* ]]; then
 	echo "WRT_WIFI=wifi-no" >> $GITHUB_ENV
 fi
 
+#修复golang版本过低导致xray-core编译失败
+GOLANG_PATH="./feeds/packages/lang/golang"
+rm -rf $GOLANG_PATH
+git clone https://github.com/sbwml/packages_lang_golang -b 27.x $GOLANG_PATH
+
 #高通平台调整
 DTS_PATH="./target/linux/qualcommax/dts/"
 if [[ "${WRT_TARGET^^}" == *"QUALCOMMAX"* ]]; then
