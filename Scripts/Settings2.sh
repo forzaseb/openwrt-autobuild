@@ -37,6 +37,9 @@ echo "CONFIG_LUCI_LANG_zh_Hans=y" >> ./.config
 echo "CONFIG_PACKAGE_luci-theme-$WRT_THEME=y" >> ./.config
 echo "CONFIG_PACKAGE_luci-app-$WRT_THEME-config=y" >> ./.config
 
+#内核切换成6.18
+echo "CONFIG_TESTING_KERNEL=y" >> ./.config
+
 #引入私有扩展配置
 if [ -f "$GITHUB_WORKSPACE/Config/PRIVATE.txt" ]; then
 	echo "Applying private configurations from PRIVATE.txt..."
