@@ -141,6 +141,11 @@ git clone https://github.com/dl12345/luci-app-mwan3.git ./feeds/luci/application
 rm -rf ./feeds/packages/net/mwan3/
 git clone https://github.com/dl12345/mwan3.git ./feeds/packages/net/mwan3/
 
+#修复golang版本过低导致xray-core编译失败
+GOLANG_PATH="./feeds/packages/lang/golang"
+rm -rf $GOLANG_PATH
+git clone https://github.com/sbwml/packages_lang_golang -b 27.x $GOLANG_PATH
+
 #UPDATE_VERSION "软件包名" "测试版，true，可选，默认为否"
 #UPDATE_VERSION "sing-box"
 UPDATE_VERSION "xray-core" "true"
