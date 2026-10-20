@@ -145,7 +145,7 @@ rm -rf $GOLANG_PATH
 git clone https://github.com/sbwml/packages_lang_golang -b 27.x $GOLANG_PATH
 
 #UPDATE_VERSION "软件包名" "测试版，true，可选，默认为否"
-#UPDATE_VERSION "sing-box"
+UPDATE_VERSION "sing-box"
 UPDATE_VERSION "xray-core" "true"
 
 #引入私有扩展脚本
